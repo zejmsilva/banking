@@ -1,19 +1,113 @@
-﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.banking</groupId>
-    <artifactId>banking</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.10.0</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.banking</groupId>
+  <artifactId>banking</artifactId>
+  <version>1.0.0</version>
+  <name>banking</name>
+  <description>Mini-projeto para comparar SBST (EvoSuite) vs LLMs na geração de testes</description>
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>5.10.0</junit.version>
+    <pit.version>1.15.0</pit.version>
+    <evosuite.plugin.version>1.2.0</evosuite.plugin.version>
+  </properties>
+  
+ <dependencies>
+    <dependency>
+     <groupId>org.evosuite</groupId>
+     <artifactId>evosuite-standalone-runtime</artifactId>
+     <version>${evosuite.plugin.version}</version>
+     <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.pitest</groupId>
+      <artifactId>pitest-junit5-plugin</artifactId>
+      <version>1.2.1</version>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>EvoSuite</id>
+      <name>EvoSuite Repository</name>
+      <url>https://www.evosuite.org/m2</url>
+    </repository>
+  </repositories>
+
+  <build>
+    <plugins>
+      <!-- Surefire para JUnit 5 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.1.2</version>
+        <configuration>
+          <useModulePath>false</useModulePath>
+        </configuration>
+      </plugin>
+
+      <!-- Jacoco -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.10</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- PIT Mutation Testing -->
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>${pit.version}</version>
+        <configuration>
+          <targetClasses>
+            <param>*</param>
+          </targetClasses>
+          <targetTests>
+            <param>*Test</param>
+          </targetTests>
+          <mutators>
+            <mutator>STRONGER</mutator>
+          </mutators>
+        </configuration>
+      </plugin>
+
+      <!-- EvoSuite (SBST) -->
+      <plugin>
+        <groupId>org.evosuite.plugins</groupId>
+        <artifactId>evosuite-maven-plugin</artifactId>
+        <version>${evosuite.plugin.version}</version>
+        <configuration>
+          <generateSuite>true</generateSuite>
+          <criterion>LINE,BRANCH</criterion>
+          <searchBudget>60</searchBudget>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
