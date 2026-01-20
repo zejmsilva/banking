@@ -8,8 +8,8 @@
   <name>banking</name>
   <description>Mini-projeto para comparar SBST (EvoSuite) vs LLMs na geração de testes</description>
   <properties>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit.version>5.10.0</junit.version>
     <pit.version>1.15.0</pit.version>
@@ -23,6 +23,13 @@
      <version>${evosuite.plugin.version}</version>
      <scope>test</scope>
     </dependency>
+
+  <dependency>
+    <groupId>org.junit.vintage</groupId>
+    <artifactId>junit-vintage-engine</artifactId>
+    <version>5.10.0</version>
+    <scope>test</scope>
+  </dependency>
 
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -54,7 +61,10 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.1.2</version>
         <configuration>
-          <useModulePath>false</useModulePath>
+          <includes>
+            <include>**/*Test.java</include>
+            <include>**/*ESTest.java</include>
+          </includes>
         </configuration>
       </plugin>
 
@@ -89,7 +99,7 @@
             <param>com.bank.*</param>
           </targetClasses>
           <targetTests>
-            <param>com.bank.*Test</param>
+            <param>com.bank.*</param>
           </targetTests>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -104,7 +114,7 @@
         <version>${evosuite.plugin.version}</version>
         <configuration>
           <generateSuite>true</generateSuite>
-          <criterion>LINE,BRANCH</criterion>
+          <criterion>BRANCH</criterion>
           <searchBudget>60</searchBudget>
         </configuration>
       </plugin>
