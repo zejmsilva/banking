@@ -21,6 +21,10 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+    - name: Compilar, Testar e Gerar Mutação
+      # Adicionamos 'pitest:mutationCoverage' para que a pasta target/pit-reports seja criada
+      run: mvn -B package pitest:mutationCoverage --file pom.xml
+    
     - name: Compilar e Testar com Maven
       # O comando package executa o JaCoCo configurado no seu pom.xml
       run: mvn -B package --file pom.xml
