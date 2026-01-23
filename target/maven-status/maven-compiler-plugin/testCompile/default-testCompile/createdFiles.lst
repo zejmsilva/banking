@@ -1,0 +1,17 @@
+com\bank\AccountExhaustiveTest.class
+com\bank\TransferServiceExhaustiveTest$FailuresAndAtomicity.class
+com\bank\TransferServiceExhaustiveTest.class
+com\bank\Account_ESTest.class
+com\bank\AccountExhaustiveTest$Deposit.class
+com\bank\AccountExhaustiveTest$Withdraw.class
+com\bank\AccountTest.class
+com\bank\TransferService_ESTest.class
+com\bank\TransferService_ESTest_scaffolding.class
+com\bank\Main_ESTest_scaffolding.class
+com\bank\TransferServiceTest.class
+com\bank\AccountExhaustiveTest$Invariants.class
+com\bank\Account_ESTest_scaffolding.class
+com\bank\TransferServiceExhaustiveTest$ArgumentValidation.class
+com\bank\TransferServiceExhaustiveTest$EdgeCasesAndHappyPath.class
+com\bank\MainExhaustiveTest.class
+com\bank\Main_ESTest.class

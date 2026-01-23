@@ -1,105 +1,152 @@
-﻿<project xmlns="http://maven.apache.org/POM/4.0.0"
+﻿
+<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.bank</groupId>
-    <artifactId>banking</artifactId>
-    <version>1.0.0</version>
-    <name>banking</name>
-    <description>Mini-projeto para comparar SBST (EvoSuite) vs LLMs na geração de testes</description>
+  <groupId>com.bank</groupId>
+  <artifactId>banking</artifactId>
+  <version>1.0.0</version>
+  <name>banking</name>
+  <description>Mini-projeto para comparar SBST (EvoSuite) vs LLMs na geração de testes</description>
 
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.10.0</junit.version>
-        <pit.version>1.15.0</pit.version>
-        <evosuite.plugin.version>1.0.6</evosuite.plugin.version>
-    </properties>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <junit.version>5.10.0</junit.version>
+    <pit.version>1.15.0</pit.version>
+    <evosuite.plugin.version>1.0.6</evosuite.plugin.version>
+    <jacoco.version>0.8.11</jacoco.version>
+  </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.evosuite</groupId>
-            <artifactId>evosuite-standalone-runtime</artifactId>
-            <version>${evosuite.plugin.version}</version>
-            <scope>test</scope>
-        </dependency>
+  <dependencies>
+    <!-- JUnit 5 (Jupiter) -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
 
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
+    <!-- Vintage (executa testes JUnit 4, caso existam) -->
+    <dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <!-- JUnit 4 (apenas se ainda houver testes JUnit 4) -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
+    </dependency>
 
-    <repositories>
-        <repository>
-            <id>EvoSuite</id>
-            <name>EvoSuite Repository</name>
-            <url>https://www.evosuite.org/m2</url>
-        </repository>
-    </repositories>
+    <!-- Runtime do EvoSuite (não atrapalha a PARTE B) -->
+    <dependency>
+      <groupId>org.evosuite</groupId>
+      <artifactId>evosuite-standalone-runtime</artifactId>
+      <version>${evosuite.plugin.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.1.2</version>
-                <configuration>
-                    <includes>
-                        <include>**/*Test.java</include>
-                        <include>**/*ESTest.java</include>
-                    </includes>
-                </configuration>
-            </plugin>
+  <repositories>
+    <repository>
+      <id>EvoSuite</id>
+      <url>https://www.evosuite.org/m2</url>
+    </repository>
+  </repositories>
 
-            <plugin>
-                <groupId>org.pitest</groupId>
-                <artifactId>pitest-maven</artifactId>
-                <version>${pit.version}</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.pitest</groupId>
-                        <artifactId>pitest-junit5-plugin</artifactId>
-                        <version>1.2.1</version>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <targetClasses>
-                        <param>com.bank.*</param>
-                    </targetClasses>
-                    <targetTests>
-                        <param>com.bank.*</param>
-                    </targetTests>
-                    <mutators>
-                        <mutator>STRONGER</mutator>
-                    </mutators>
-                </configuration>
-            </plugin>
+  <build>
+    <plugins>
 
-            <plugin>
-                <groupId>org.evosuite.plugins</groupId>
-                <artifactId>evosuite-maven-plugin</artifactId>
-                <version>${evosuite.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>prepare</goal>
-                        </goals>
-                        <phase>process-test-classes</phase>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+      <!-- JaCoCo: injeta agente e gera relatório (em verify) -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco.version}</version>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Surefire: descobre JUnit 5/4 e preserva ${argLine} do JaCoCo -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <argLine>${argLine}</argLine>
+          <includes>
+            <include>**/*Test.java</include>
+            <include>**/*ESTest.java</include>
+          </includes>
+          <!-- Em JDKs mais novos, se precisar: -->
+          <!-- <useModulePath>false</useModulePath> -->
+        </configuration>
+      </plugin>
+
+      <!-- PIT (mutação) -->
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>${pit.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>1.2.1</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <targetClasses><param>com.bank.*</param></targetClasses>
+          <targetTests><param>com.bank.*</param></targetTests>
+          <mutators><mutator>STRONGER</mutator></mutators>
+          <outputFormats>
+            <param>HTML</param><param>XML</param><param>CSV</param>
+          </outputFormats>
+          <timestampedReports>false</timestampedReports>
+          <reportsDirectory>${project.build.directory}/pit-reports</reportsDirectory>
+          <!-- (Opcional) para a PARTE B: se quiser ignorar Main no PIT:
+          <excludedClasses>
+            <param>com.bank.Main</param>
+          </excludedClasses>
+          -->
+        </configuration>
+      </plugin>
+
+      <!-- EvoSuite plugin (opcional na PARTE B; manter não atrapalha) -->
+      <plugin>
+        <groupId>org.evosuite.plugins</groupId>
+        <artifactId>evosuite-maven-plugin</artifactId>
+        <version>${evosuite.plugin.version}</version>
+        <executions>
+          <execution>
+            <goals><goal>prepare</goal></goals>
+            <phase>process-test-classes</phase>
+          </execution>
+        </executions>
+        <configuration>
+          <extraArgs>-Duse_separate_classloader=false</extraArgs>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
 </project>

@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
- * Conta bancária simples para a atividade de teste.
+ * Conta bancária simples.
  * Regras principais:
  *  - Depósitos e saques devem ser > 0
  *  - Saque não pode exceder o saldo

@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Account.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.bank;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.math.BigDecimal;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Objects;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Conta banc&#225;ria simples.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Regras principais:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *  - Dep&#243;sitos e saques devem ser &#62; 0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *  - Saque n&#227;o pode exceder o saldo</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class Account {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  private BigDecimal balance = BigDecimal.ZERO;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_16'>1</a>
+<span>
+
+1. getBalance : replaced return value with null for com/bank/Account::getBalance &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>  public BigDecimal getBalance() { return balance; }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public void deposit(BigDecimal amount) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_19'/>
+19
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_19'>1</a>
+<span>
+
+1. deposit : removed call to com/bank/Account::require &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    require(amount, &#34;Dep&#243;sito inv&#225;lido&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_20'/>
+20
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_20'>3</a>
+<span>
+
+1. deposit : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+
+2. deposit : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+
+3. deposit : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (amount.compareTo(BigDecimal.ZERO) &#60;= 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      throw new IllegalArgumentException(&#34;Valor deve ser &#62; 0&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    balance = balance.add(amount);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public void withdraw(BigDecimal amount) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_27'/>
+27
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_27'>1</a>
+<span>
+
+1. withdraw : removed call to com/bank/Account::require &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    require(amount, &#34;Saque inv&#225;lido&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_28'/>
+28
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_28'>3</a>
+<span>
+
+1. withdraw : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+
+2. withdraw : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+
+3. withdraw : changed conditional boundary &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (amount.compareTo(BigDecimal.ZERO) &#60;= 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      throw new IllegalArgumentException(&#34;Valor deve ser &#62; 0&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_31'/>
+31
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_31'>3</a>
+<span>
+
+1. withdraw : changed conditional boundary &rarr; KILLED<br/>
+
+2. withdraw : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+
+3. withdraw : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (balance.compareTo(amount) &#60; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      throw new IllegalStateException(&#34;Saldo insuficiente&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    balance = balance.subtract(amount);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private void require(BigDecimal amount, String msg) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_38'/>
+38
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_38'>2</a>
+<span>
+
+1. require : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+
+2. require : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (Objects.isNull(amount)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      throw new NullPointerException(msg);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@68f6e55d_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@68f6e55d_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBalance<br/><b>Killed by : </b>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test3(com.bank.Account_ESTest)]</span></span> replaced return value with null for com/bank/Account::getBalance &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@68f6e55d_19'>19</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_19'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>deposit<br/><b>Killed by : </b>none</span></span> removed call to com/bank/Account::require &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@68f6e55d_20'>20</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_20'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>deposit<br/><b>Killed by : </b>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test3(com.bank.Account_ESTest)]</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>deposit<br/><b>Killed by : </b>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test1(com.bank.Account_ESTest)]</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>deposit<br/><b>Killed by : </b>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test8(com.bank.Account_ESTest)]</span></span> changed conditional boundary &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@68f6e55d_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_27'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>withdraw<br/><b>Killed by : </b>none</span></span> removed call to com/bank/Account::require &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@68f6e55d_28'>28</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_28'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>withdraw<br/><b>Killed by : </b>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test7(com.bank.Account_ESTest)]</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>withdraw<br/><b>Killed by : </b>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test0(com.bank.Account_ESTest)]</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>withdraw<br/><b>Killed by : </b>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test6(com.bank.Account_ESTest)]</span></span> changed conditional boundary &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@68f6e55d_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_31'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>withdraw<br/><b>Killed by : </b>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test2(com.bank.Account_ESTest)]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>withdraw<br/><b>Killed by : </b>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test2(com.bank.Account_ESTest)]</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>withdraw<br/><b>Killed by : </b>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test7(com.bank.Account_ESTest)]</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@68f6e55d_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@68f6e55d_38'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>require<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>require<br/><b>Killed by : </b>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test1(com.bank.Account_ESTest)]</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>EXPERIMENTAL_SWITCH</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_ELSE</li>
+
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_IF</li>
+
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_ELSE</li>
+
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_IF</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.bank.AccountTest.[engine:junit-jupiter]/[class:com.bank.AccountTest]/[method:withdraw_zeroAmount_throwsIllegalArgument()] (0 ms)</li><li>com.bank.AccountTest.[engine:junit-jupiter]/[class:com.bank.AccountTest]/[method:withdraw_negativeAmount_throwsIllegalArgument()] (1 ms)</li><li>com.bank.AccountTest.[engine:junit-jupiter]/[class:com.bank.AccountTest]/[method:withdraw_validAmount_updatesBalance()] (0 ms)</li><li>com.bank.AccountTest.[engine:junit-jupiter]/[class:com.bank.AccountTest]/[method:withdraw_amountGreaterThanBalance_throwsIllegalState()] (2 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Withdraw]/[method:withdraw_negative_throwsIAE()] (1 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Withdraw]/[method:withdraw_exactBalance_toZero()] (0 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Withdraw]/[method:withdraw_zero_throwsIAE()] (1 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Withdraw]/[method:withdraw_moreThanBalance_throwsISE()] (1 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Withdraw]/[method:withdraw_sequence_consistency()] (0 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:EdgeCasesAndHappyPath]/[method:transfer_exactBalance_toZero()] (0 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:EdgeCasesAndHappyPath]/[method:transfer_veryLarge_supported()] (0 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:EdgeCasesAndHappyPath]/[method:transfer_minPositive_movesPrecisely()] (0 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:EdgeCasesAndHappyPath]/[method:transfer_valid_updatesBothBalances()] (0 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:EdgeCasesAndHappyPath]/[method:transfer_mixedScales_accepted()] (0 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Withdraw]/[method:withdraw_partialNeverGoesNegative()] (1 ms)</li><li>com.bank.TransferServiceTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceTest]/[method:transfer_validAmount_movesBalances()] (3 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:FailuresAndAtomicity]/[method:transfer_insufficientFunds_throwsISE_andNoPartialEffects()] (1 ms)</li><li>com.bank.MainExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.MainExhaustiveTest]/[method:main_linesOrder_isStable()] (0 ms)</li><li>com.bank.MainExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.MainExhaustiveTest]/[method:main_twice_producesSameOutput()] (0 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:EdgeCasesAndHappyPath]/[method:transfer_sequence_preservesPrecision()] (1 ms)</li><li>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test0(com.bank.Account_ESTest)] (1 ms)</li><li>com.bank.MainExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.MainExhaustiveTest]/[method:main_arbitraryArgs_printsExpected()] (0 ms)</li><li>com.bank.MainExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.MainExhaustiveTest]/[method:main_emptyArgs_printsExpected()] (0 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Invariants]/[method:invariant_balanceUnchangedOnException()] (3 ms)</li><li>com.bank.MainExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.MainExhaustiveTest]/[method:main_nullArgs_printsExpected()] (1 ms)</li><li>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test7(com.bank.Account_ESTest)] (2 ms)</li><li>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test6(com.bank.Account_ESTest)] (3 ms)</li><li>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test2(com.bank.Account_ESTest)] (1 ms)</li><li>com.bank.TransferService_ESTest.[engine:junit-vintage]/[runner:com.bank.TransferService_ESTest]/[test:test2(com.bank.TransferService_ESTest)] (2 ms)</li><li>com.bank.Main_ESTest.[engine:junit-vintage]/[runner:com.bank.Main_ESTest]/[test:test1(com.bank.Main_ESTest)] (5 ms)</li><li>com.bank.TransferService_ESTest.[engine:junit-vintage]/[runner:com.bank.TransferService_ESTest]/[test:test1(com.bank.TransferService_ESTest)] (9 ms)</li><li>com.bank.AccountTest.[engine:junit-jupiter]/[class:com.bank.AccountTest]/[method:deposit_negativeAmount_throwsIllegalArgument()] (1 ms)</li><li>com.bank.AccountTest.[engine:junit-jupiter]/[class:com.bank.AccountTest]/[method:deposit_zeroAmount_throwsIllegalArgument()] (1 ms)</li><li>com.bank.AccountTest.[engine:junit-jupiter]/[class:com.bank.AccountTest]/[method:deposit_positiveAmount_updatesBalance()] (1 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Deposit]/[method:deposit_positive_updatesBalance()] (0 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Deposit]/[method:deposit_veryLargeValue_supported()] (0 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Deposit]/[method:deposit_mixedScales_accumulate()] (0 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Deposit]/[method:deposit_negative_throwsIAE()] (1 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Deposit]/[method:deposit_zero_throwsIAE()] (1 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:ArgumentValidation]/[method:transfer_toNull_throwsNPE_andDoesNotChangeFrom()] (1 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Deposit]/[method:deposit_manySmall_exactSum()] (0 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:ArgumentValidation]/[method:transfer_sameAccount_throwsIAE_andNoChange()] (2 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Invariants]/[method:invariant_depositOrder_indifferent()] (1 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:ArgumentValidation]/[method:transfer_zero_throwsIAE()] (1 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:ArgumentValidation]/[method:transfer_negative_throwsIAE()] (1 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:ArgumentValidation]/[method:transfer_nullAmount_throwsIAE()] (2 ms)</li><li>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test1(com.bank.Account_ESTest)] (1 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:FailuresAndAtomicity]/[method:noSideEffects_onInvalidInput()] (3 ms)</li><li>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test3(com.bank.Account_ESTest)] (2 ms)</li><li>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test8(com.bank.Account_ESTest)] (15 ms)</li><li>com.bank.AccountTest.[engine:junit-jupiter]/[class:com.bank.AccountTest]/[method:withdraw_nullAmount_throwsNPE()] (0 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Withdraw]/[method:withdraw_null_throwsNPE()] (1 ms)</li><li>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test5(com.bank.Account_ESTest)] (2 ms)</li><li>com.bank.AccountTest.[engine:junit-jupiter]/[class:com.bank.AccountTest]/[method:deposit_nullAmount_throwsNPE()] (0 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[nested-class:Deposit]/[method:deposit_null_throwsNPE()] (0 ms)</li><li>com.bank.Account_ESTest.[engine:junit-vintage]/[runner:com.bank.Account_ESTest]/[test:test4(com.bank.Account_ESTest)] (1 ms)</li><li>com.bank.TransferServiceExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.TransferServiceExhaustiveTest]/[nested-class:ArgumentValidation]/[method:transfer_fromNull_throwsNPE_andDoesNotChangeTo()] (1 ms)</li><li>com.bank.AccountExhaustiveTest.[engine:junit-jupiter]/[class:com.bank.AccountExhaustiveTest]/[method:initialBalance_isZero()] (28 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.0
+
+</body>
+</html>
